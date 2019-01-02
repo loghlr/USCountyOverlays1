@@ -5,7 +5,7 @@
     <!-- may fix scroll zoom, but brings 100% height issue?  -->
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>US County Clickable Overlay Map</title>
+    <title>US County Clickable Overlay Map v0.1</title>
 
     <style>
         #map { height: 100%; }
@@ -62,8 +62,9 @@
           var msg = event.feature.getProperty('NAME') + ' ' + event.feature.getProperty('LSAD') + '<p>' + event.feature.getProperty('GEO_ID');
           infoWindow.setContent(msg);
           infoWindow.setPosition(event.latLng);
-
           infoWindow.open(map);
+          // highlight this feature, style applies to the whole array of polygons, solution:
+          this.overrideStyle(event.feature, {strokeWeight: 4});
         }
     </script>
 </head>
