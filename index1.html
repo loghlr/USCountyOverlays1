@@ -59,6 +59,7 @@
 
         // pop up showing some properties from the geojson, see https://developers.google.com/maps/documentation/javascript/examples/layer-data-event
         function showProperties(event) {
+          this.revertStyle(); // clear feature highlights
           var msg = event.feature.getProperty('NAME') + ' ' + event.feature.getProperty('LSAD') + '<p>' + event.feature.getProperty('GEO_ID');
           infoWindow.setContent(msg);
           infoWindow.setPosition(event.latLng);
